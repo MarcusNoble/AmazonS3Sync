@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>saumya</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.0-rc.1.css">
+</head>
+<body>
+	<div id="autoLogin" data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>Amazon S3</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<h1>Initialising</h1>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h1>Sync</h1>
+		</div>
+	</div>
+	<div id="autoSync" data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>Amazon S3</h1>
+			<a href="#popupMenu" data-rel="popup" data-transition="pop" data-position-to="window" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-b">Update</a>
+			<div data-role="popup" id="popupMenu" data-theme="b">
+		        <ul data-role="listview" data-inset="true" style="min-width:210px;">
+		            <li data-role="list-divider">What to update?</li>
+		            <li><a href="#updateAWS" data-transition="flip" class="ui-btn ui-icon-cloud ui-btn-icon-left ui-shadow-icon ui-btn-b">Amazon S3 configuration</a></li>
+		            <li><a href="#updateDrive" data-transition="flip" class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow-icon ui-btn-b">Folder path</a></li>
+		        </ul>
+			</div>
+		</div>
+		<div role="main" class="ui-content">
+			<h1>Auto Sync in progress.</h1>
+			<div class="ui-field-contain">
+				<label for="textarea">Last uploaded file:</label>
+				<textarea name="textarea" id="idSystemInfo"></textarea>
+			</div>
+			<div class="ui-field-contain">
+		        <label for="text-10">Amazon S3 Bucket name :</label>
+     			<input type="text" disabled="disabled" name="text-10" id="lS3Bucket" value="">
+     			<label for="text-10">Syncs from folder at:</label>
+     			<input type="text" disabled="disabled" name="text-10" id="lFolder" value="">
+		    </div>
+		</div>
+	</div>
+
+	<div id="configureAWS" data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>Amazon S3</h1>
+		</div>
+		<div data-role="popup" id="idPopUp_1" data-theme="a" data-overlay-theme="b" data-dismissible="false" class="ui-content">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+			<p>Please fillup everything.</p>
+		</div>
+		<div role="main" class="ui-content">
+			
+			<div class="ui-field-contain">
+			    <input type="text" name="idTxtAKey" id="idTxtAKey" placeholder="Access Key">
+			</div>
+			<div class="ui-field-contain">
+			    <input type="text" name="idTxtSecAKey" id="idTxtSecAKey" placeholder="Secret Access Key">
+			</div>
+			<div class="ui-field-contain">
+			    <input type="text" name="idTxtBucket" id="idTxtBucket" placeholder="Amazon S3 Bucket Name">
+			</div>
+			<button id="idBtnDone" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow-icon ui-btn-b">Connect</button>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h1>Sync</h1>
+		</div>
+	</div>
+	<div id="configureDrive" data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>Amazon S3</h1>
+		</div>
+		<div data-role="popup" id="idPopUp_2" data-theme="a" data-overlay-theme="b" data-dismissible="false" class="ui-content">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+			<p>Please put the folder path.</p>
+		</div>
+		<div role="main" class="ui-content">
+			<div class="ui-field-contain">
+			    <input type="text" name="idTxtFolder" id="idTxtFolder" placeholder="Folder to Sync">
+			</div>
+			<button id="idBtnFolderDone" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow-icon ui-btn-b">Start Synching</button>
+		</div>
+	</div>
+
+	<!-- Update configuration -->
+	<div id="updateAWS" data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>Amazon S3</h1>
+			<a href="#autoSync" data-transition="flip" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">Cancel</a>
+		</div>
+		<div data-role="popup" id="idUpdatePopUp_1" data-theme="a" data-overlay-theme="b" data-dismissible="false" class="ui-content">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+			<p>Please fillup everything.</p>
+		</div>
+		<div role="main" class="ui-content">
+			
+			<div class="ui-field-contain">
+			    <input type="text" name="idUpdateTxtAKey" id="idUpdateTxtAKey" placeholder="Access Key">
+			</div>
+			<div class="ui-field-contain">
+			    <input type="text" name="idUpdateTxtSecAKey" id="idUpdateTxtSecAKey" placeholder="Secret Access Key">
+			</div>
+			<div class="ui-field-contain">
+			    <input type="text" name="idUpdateTxtBucket" id="idUpdateTxtBucket" placeholder="Amazon S3 Bucket Name">
+			</div>
+			<button id="idUpdateBtnDone" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow-icon ui-btn-b">Connect</button>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h1>Sync</h1>
+		</div>
+	</div>
+
+	<div id="updateDrive" data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>Amazon S3</h1>
+			<a href="#autoSync" data-transition="flip" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">Cancel</a>
+		</div>
+		<div data-role="popup" id="idUpdatePopUp_2" data-theme="a" data-overlay-theme="b" data-dismissible="false" class="ui-content">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+			<p>Please put the folder path.</p>
+		</div>
+		<div role="main" class="ui-content">
+			<div class="ui-field-contain">
+			    <input type="text" name="idUpdateTxtFolder" id="idUpdateTxtFolder" placeholder="Folder to Sync">
+			</div>
+			<button id="idUpdateBtnFolderDone" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow-icon ui-btn-b">Start Synching</button>
+		</div>
+	</div>
+
+<script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+<script type="text/javascript" src="js/aws-sdk-2.0.0-rc9.min.js"></script>
+<script type="text/javascript" src="js/saumya/app.js"></script>
+</body>
+</html>

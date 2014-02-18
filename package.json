@@ -1,0 +1,28 @@
+{
+	"name": "SaumyaS3Sync",
+	"main": "./html/index.html",
+	"description": "An app to keep an eye on a folder and upload the changed file to Amazon S3 bucket.",
+	"version": "0.2.0",
+	"window": {
+		"title": "Saumya Sync",
+		"icon": "icon.png",
+		"toolbar": false,
+		"frame": true,
+		"width": 400,
+		"height": 420,
+		"position": "center",
+	    "min_width": 400,
+	    "min_height": 420,
+	    "max_width": 400,
+	    "max_height": 420,
+	    "resizable": false,
+	    "always-on-top": false,
+	    "show": true //hiding or show the window in the beginning
+	},
+	"webkit": {
+    	"plugin": true
+  	},
+	"dependencies": {
+    	"chokidar": "*"
+	}
+}
